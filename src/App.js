@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header'
+import Navbar from  './components/Navbar'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          IT-kamasutra Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const App = () => {
+    return (
+        <div className='app-wrapper'>
+            <Header/>
+            <Navbar/>
+            <div className='content'>
+                <div>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTl5AQBqvHdMx-rO3OLbHSUdyb_9HmL1Kfveg&usqp=CAU" />
+                </div>
+                    <div>
+                          ava+description
+                    </div>
+                         <div>
+                                My posts
+                             <div>
+                                 New post
+                             </div>
+                          <div>
+                             <div>
+                                 post 1
+                             </div>
+
+                             <div>
+                                 post 2
+                             </div>
+                           </div>
+                         </div>
+
+            </div>
+
+        </div>
+    );
 }
 
 export default App;
