@@ -1,40 +1,25 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header'
-import Navbar from  './components/Navbar'
+import Header from './components/Header/Header'
+import Navbar from './components/Navbar/Navbar'
+import Profile from './components/Profile/Profile'
+import Dialogs from "./components/Dialogs/Dialogs";
+import {Route, BrowserRouter} from "react-router-dom";
 
 
-const App = () => {
+const App = (props) => {
     return (
-        <div className='app-wrapper'>
-            <Header/>
-            <Navbar/>
-            <div className='content'>
-                <div>
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTl5AQBqvHdMx-rO3OLbHSUdyb_9HmL1Kfveg&usqp=CAU" />
+        <BrowserRouter>
+            <div className='app-wrapper'>
+                <Header/>
+                <Navbar/>
+                <div className='app-wrapper-content'>
+                    <Route path='/dialogs' component={Dialogs}/>
+                    <Route path='/profile' component={Profile}/>
                 </div>
-                    <div>
-                          ava+description
-                    </div>
-                         <div>
-                                My posts
-                             <div>
-                                 New post
-                             </div>
-                          <div>
-                             <div>
-                                 post 1
-                             </div>
-
-                             <div>
-                                 post 2
-                             </div>
-                           </div>
-                         </div>
 
             </div>
-
-        </div>
+        </BrowserRouter>
     );
 }
 
