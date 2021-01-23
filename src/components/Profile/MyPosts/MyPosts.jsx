@@ -22,7 +22,8 @@ const  MyPosts = (props) => {
            <h3>My posts</h3>
             <div>
                 <div>
-                     <textarea ref = {newPostElement}></textarea>
+                     {/*<textarea ref = {newPostElement} value="Belik is react developer"  />*/}
+                     <textarea ref = {newPostElement} defaultValue={"Belik is react developer"}  />
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>
