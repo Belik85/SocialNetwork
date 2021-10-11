@@ -80,6 +80,7 @@ const Dialogs = (props) => {
                 {/*<Message message={messagesData[0].message}/>*/}
                 {/*<Message message={messagesData[1].message}/>*/}
 
+
                 <div>{messagesElements}</div>
                 <div>
                     <div><textarea value={newMessageBody} onChange={onNewMessageChange}
