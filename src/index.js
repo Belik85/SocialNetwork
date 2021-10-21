@@ -6,16 +6,15 @@ import App from './App';
 import {BrowserRouter} from "react-router-dom";
 
 
-
 let rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
             <React.StrictMode>
                 {/*<App state={store.getState()}*/}
                 <App state={state}
-                     dispatch = {store.dispatch.bind(store)}
-                     // updateNewPostText = {store.updateNewPostText.bind(store)}
-                    store={store}
+                     dispatch={store.dispatch.bind(store)}
+                    // updateNewPostText = {store.updateNewPostText.bind(store)}
+                     store={store}
                 />
             </React.StrictMode>,
         </BrowserRouter>,
@@ -23,9 +22,12 @@ let rerenderEntireTree = (state) => {
     );
 }
 
-rerenderEntireTree (store.getState());
+rerenderEntireTree(store.getState());
 
-store.subscribe(rerenderEntireTree);
+store.subscribe(() => {
+    let state = store.getState();
+    rerenderEntireTree(state);
+});
 
 
 

@@ -1,24 +1,33 @@
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 
+let initialState = {
+    posts: [
+        {id: 1, message: 'Hi,how are you?', likesCount: 12},
+        {id: 2, message: 'What is your name?', likesCount: 23},
+        {id: 3, message: 'Tell me about yourself?', likesCount: 9}
+    ],
+    newPostText: "Belik is React master"
+};
 
-const profileReducer = (state, action) => {
+
+const profileReducer = (state = initialState, action) => {
 
     // if (action.type === "ADD-POST") {
-        // this._addPost();
-        // let newPost = {
-        //     id: 5,
-        //     message: state.newPostText,
-            // message: postMessage,
-        //     likesCount: 0
-        // };
-        // state.posts.push(newPost)
-        // state.newPostText = '';
-        // this._callSubscriber(this._state);
+    // this._addPost();
+    // let newPost = {
+    //     id: 5,
+    //     message: state.newPostText,
+    // message: postMessage,
+    //     likesCount: 0
+    // };
+    // state.posts.push(newPost)
+    // state.newPostText = '';
+    // this._callSubscriber(this._state);
     // } else if (action.type === "UPDATE-NEW-POST-TEXT") {
-        // this._updateNewPostText(action.newText)
-        // state.newPostText = action.newText;
-        // this._callSubscriber(this._state);
+    // this._updateNewPostText(action.newText)
+    // state.newPostText = action.newText;
+    // this._callSubscriber(this._state);
     // }
 
     switch (action.type) {
