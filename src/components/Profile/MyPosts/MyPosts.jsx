@@ -42,7 +42,7 @@ const  MyPosts = (props) => {
                      {/*<textarea ref = {newPostElement} defaultValue={"Belik is react developer"}  />*/}
                 </div>
                 <div>
-                    <button onClick={addPost}>Add post</button>
+                    <button onClick={onAddPost}>Add post</button>
                 </div>
             </div>
             <div className={d.posts}>

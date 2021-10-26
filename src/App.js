@@ -9,9 +9,8 @@ import {Route, BrowserRouter} from "react-router-dom";
 import state from "./redux/store";
 
 
+
 const App = (props) => {
-
-
 
 
     return (
@@ -23,13 +22,14 @@ const App = (props) => {
                 {/*<Route exact path='/profile' component={Profile}/>*/}
 
                 <Route exact path='/dialogs' render={() => <Dialogs store={props.store}
-                                                                    // state={props.state.dialogsPage}
+                    // state={props.state.dialogsPage}
 
                 />}/>
-                <Route exact path='/profile' render={() => <Profile profilePage={props.state.profilePage}
-                                                                    // addPost={props.addPost}
-                                                                    dispatch={props.dispatch}
-                                                                    // updateNewPostText = {props.updateNewPostText}
+                <Route exact path='/profile' render={() => <Profile store={props.store}
+                    // profilePage={props.state.profilePage}
+                    // addPost={props.addPost}
+                    // dispatch={props.dispatch}
+                    // updateNewPostText = {props.updateNewPostText}
                 />}/>
 
             </div>
