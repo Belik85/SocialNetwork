@@ -7,6 +7,7 @@ import Dialogs from "./components/Dialogs/Dialogs";
 import {Route, BrowserRouter} from "react-router-dom";
 
 import state from "./redux/store";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 
 
@@ -21,7 +22,8 @@ const App = (props) => {
                 {/*<Route exact path='/dialogs' component={Dialogs}/> */}
                 {/*<Route exact path='/profile' component={Profile}/>*/}
 
-                <Route exact path='/dialogs' render={() => <Dialogs store={props.store}
+                <Route exact path='/dialogs' render={() =>  <DialogsContainer store={props.store}
+                    /*<Dialogs store={props.store}*/
                     // state={props.state.dialogsPage}
 
                 />}/>
