@@ -4,7 +4,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
-import StoreContext, {Provider} from "./StoreContext";
+// import StoreContext, {Provider} from "./StoreContext";
+import {Provider} from "react-redux";
 
 
 let rerenderEntireTree = () => {
@@ -12,14 +13,14 @@ let rerenderEntireTree = () => {
         <BrowserRouter>
             {/*<React.StrictMode>*/}
                 {/*<App state={store.getState()}*/}
-                <StoreContext.Provider store={store}>
+                <Provider store={store}>
                     <App
                         // state={state}
                         // dispatch={store.dispatch.bind(store)}
                         // updateNewPostText = {store.updateNewPostText.bind(store)}
                         //  store={store}
                     />
-                </StoreContext.Provider>
+                </Provider>
             {/*</React.StrictMode>,*/}
         </BrowserRouter>,
         document.getElementById('root')
