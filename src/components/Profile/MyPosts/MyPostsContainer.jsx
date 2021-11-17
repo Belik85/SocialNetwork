@@ -44,6 +44,7 @@ const mapStateToProps = (state) => {
         newPostText: state.profilePage.newPostText
 
 
+
     }
 }
 
