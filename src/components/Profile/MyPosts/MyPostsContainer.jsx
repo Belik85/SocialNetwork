@@ -7,6 +7,7 @@ import mapDispatchToProps from "react-redux/lib/connect/mapDispatchToProps";
 import {connect} from "react-redux";
 
 
+
 // const MyPostsContainer = (props) => {
 //
 //     // let state = props.store.getState();
@@ -38,7 +39,7 @@ import {connect} from "react-redux";
 //     )
 // }
 
-const mapStateToProps = (state) => {
+const mapstateToProps = (state) => {
     return {
         posts: state.profilePage.posts,
         newPostText: state.profilePage.newPostText
@@ -47,7 +48,7 @@ const mapStateToProps = (state) => {
 }
 
 
-const mapDispatchToProps = (dispatch) => {
+const mapdispatchToProps = (dispatch) => {
     return {
         updateNewPostText: (text) => {
             let action = updateNewPostTextActionCreator(text);
@@ -60,7 +61,7 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 
-const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
+const MyPostsContainer = connect(mapstateToProps, mapdispatchToProps)(MyPosts);
 
 
 export default MyPostsContainer;
