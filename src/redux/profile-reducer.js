@@ -38,11 +38,21 @@ const profileReducer = (state = initialState, action) => {
                 likesCount: 0
             };
 
-            let stateCopy = {...state};
-            stateCopy.posts = [...state.posts];
-            stateCopy.posts.push(newPost);
-            stateCopy.newPostText = '';
-            return stateCopy;
+           return  {
+                ...state,
+                posts: [...state.posts,newPost],
+                newPostText: ""
+            };
+
+            // let stateCopy = {
+            //     ...state,
+            //     posts: [...state.posts,newPost],
+            //     newPostText: ""
+            // };
+            // stateCopy.posts = [...state.posts];
+            // stateCopy.posts.push(newPost);
+            // stateCopy.newPostText = '';
+            // return stateCopy;
         }
 
         // state.posts.push(newPost)
@@ -52,9 +62,19 @@ const profileReducer = (state = initialState, action) => {
 
         case UPDATE_NEW_POST_TEXT: {
 
-            let stateCopy = {...state};
-            stateCopy.newPostText = action.newText;
-            return stateCopy;
+            return  {
+                ...state,
+                newPostText: action.newText
+            };
+
+            // let stateCopy = {
+            //     ...state,
+            //     newPostText: action.newText
+            // };
+
+            // stateCopy.posts = [...state.posts];
+            // stateCopy.newPostText = action.newText;
+            // return stateCopy;
 
 
             // state.newPostText = action.newText;
