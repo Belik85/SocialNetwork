@@ -5,7 +5,7 @@ import Navbar from './components/Navbar/Navbar'
 import Profile from './components/Profile/Profile'
 import Dialogs from "./components/Dialogs/Dialogs";
 import {Route, BrowserRouter} from "react-router-dom";
-
+import Users from "./components/Users/Users";
 import state from "./redux/store";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
@@ -36,6 +36,9 @@ const App = (props) => {
                         // dispatch={props.dispatch}
                         // updateNewPostText = {props.updateNewPostText}
                     />}/>
+
+                <Route exact path='/users' render={() => <Users/>}/>
+
 
             </div>
 
