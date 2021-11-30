@@ -37,7 +37,7 @@ const App = (props) => {
                         // updateNewPostText = {props.updateNewPostText}
                     />}/>
 
-                <Route exact path='/users' render={() => <Users/>}/>
+                <Route exact path='/users' render={() => <UsersContainer/>}/>
 
 
             </div>
