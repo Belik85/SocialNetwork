@@ -8,6 +8,7 @@ import {Route, BrowserRouter} from "react-router-dom";
 import Users from "./components/Users/Users";
 import state from "./redux/store";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 
 
 const App = (props) => {
