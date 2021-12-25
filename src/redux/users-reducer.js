@@ -19,8 +19,8 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 // users: [...state.users],
-                users: state.users.map(u =>{
-                    if(u.id === action.userId) {
+                users: state.users.map(u => {
+                    if (u.id === action.userId) {
                         return {...u, followed: true}
                     }
                     return u;
@@ -30,8 +30,8 @@ const usersReducer = (state = initialState, action) => {
             return {
                 ...state,
                 // users: [...state.users],
-                users: state.users.map(u =>{
-                    if(u.id === action.userId) {
+                users: state.users.map(u => {
+                    if (u.id === action.userId) {
                         return {...u, followed: false}
                     }
                     return u;
@@ -39,7 +39,8 @@ const usersReducer = (state = initialState, action) => {
             }
 
         case SET_USERS: {
-            return { ...state,
+            return {
+                ...state,
                 // users: action.users
                 // users: [...state.users, ...action.users]
                 users: action.users
@@ -47,7 +48,8 @@ const usersReducer = (state = initialState, action) => {
         }
 
         case SET_CURRENT_PAGE: {
-            return { ...state,
+            return {
+                ...state,
                 // users: action.users
                 currentPage: action.currentPage
 
@@ -55,13 +57,15 @@ const usersReducer = (state = initialState, action) => {
         }
 
         case SET_TOTAL_USERS_COUNT: {
-            return { ...state,
+            return {
+                ...state,
                 totalUsersCount: action.count
 
             }
         }
 
-        default: return state;
+        default:
+            return state;
     }
 }
 
@@ -69,7 +73,7 @@ const usersReducer = (state = initialState, action) => {
 export const followAC = (userId) => ({type: FOLLOW, userId})
 export const unfollowAC = (userId) => ({type: UNFOLLOW, userId})
 export const setUsersAC = (users) => ({type: SET_USERS, users})
-export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage: currentPage })
+export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage: currentPage})
 export const setTotalUsersCountAC = (totalUsersCount) => ({type: SET_TOTAL_USERS_COUNT, count: totalUsersCount})
 
 export default usersReducer;

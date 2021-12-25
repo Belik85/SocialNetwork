@@ -13,10 +13,8 @@ let Users = (props) => {
         pages.push(i);
     }
 
-
     return <div>
         {/*<button onClick={this.getUsers}>Get Users</button>*/}
-
         <div>
             {pages.map(p => {
                 return <span className={props.currentPage === p && styles.selectedPage}
@@ -27,15 +25,6 @@ let Users = (props) => {
                              }}>{p}</span>
             })}
         </div>
-            <span>2</span>
-            <span>3</span>
-            <span>4</span>
-            <span>5</span>
-            <span>6</span>
-            <span>7</span>
-            <span>8</span>
-            <span>9</span>
-
         {
             props.users.map(u => <div key={u.id}>
                 <span>
@@ -49,24 +38,22 @@ let Users = (props) => {
                             : <button onClick={() => {
                                 props.follow(u.id)
                             }}>Follow</button>}
-
                     </div>
                 </span>
                     <span>
-                    <span>
+                     <span>
                         <div>{u.name}</div>
                         <div>{u.status}</div>
-                    </span>
+                     </span>
                     <span>
                         <div>{"u.location.country"}</div>
                         <div>{"u.location.city"}</div>
                     </span>
                 </span>
-                </div>
-            )
+                </div>)
         }
     </div>
 
 }
 
-export default Users
+export default Users;
