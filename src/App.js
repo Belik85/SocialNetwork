@@ -9,6 +9,7 @@ import Users from "./components/Users/CommentedUsers";
 import state from "./redux/store";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 
 
@@ -31,7 +32,7 @@ const App = (props) => {
 
                     />}/>
                 <Route exact path='/profile' render={() =>
-                    <Profile
+                    <ProfileContainer
                         // store={props.store}
                         // profilePage={props.state.profilePage}
                         // addPost={props.addPost}
