@@ -2,6 +2,7 @@ import React from 'react';
 import Profile from "./Profile";
 import axios from "axios";
 import {connect} from "react-redux";
+import {setUserProfile} from "../../redux/profile-reducer";
 
 
 class ProfileContainer extends React.Component {
@@ -17,14 +18,14 @@ class ProfileContainer extends React.Component {
 
     render() {
         return (
-            <Profile {...this.props}/>
+            <Profile {...this.props} profile = {this.props.profile}/>
         )
     }
 }
 
-let mapStateToProps = () => ({
-    a:13
+let mapStateToProps = (state) => ({
+    profile: state.profilePage.profile
 });   // если функция возвращает обьект то мы помещаем его в круглые скобки
 
 
-export default connect(mapStateToProps) (ProfileContainer);
+export default connect(mapStateToProps, {setUserProfile}) (ProfileContainer);
