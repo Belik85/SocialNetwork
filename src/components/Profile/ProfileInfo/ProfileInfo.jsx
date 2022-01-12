@@ -9,13 +9,14 @@ const ProfileInfo = (props) => {
         return  <Preloader/>
     }
 
+
     return (
         <div>
             <div>
                 <img src="https://kontra.agency/wp-content/uploads/2019/02/How_to_create_high_quality_images_for_social_media.png"/>
             </div>
             <div className={d.descriptionBlock}>
-                <img src = {props.profile.photo.large}/>
+                <img src = {props.profile.photos.large} />
                 ava+description
             </div>
 
