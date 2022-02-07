@@ -27,6 +27,7 @@ let Users = (props) => {
             })}
         </div>
         {
+
             props.users.map(u => <div key={u.id}>
                 <span>
                     <div>

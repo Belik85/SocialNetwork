@@ -25,6 +25,7 @@ class ProfileContainer extends React.Component {
 }
 
 
+
 let mapStateToProps = (state) => ({
     profile: state.profilePage.profile
 });   // если функция возвращает обьект то мы помещаем его в круглые скобки
