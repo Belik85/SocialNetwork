@@ -30,6 +30,7 @@ const App = (props) => {
                         /*<Dialogs store={props.store}*/
                         // state={props.state.dialogsPage}
 
+
                     />}/>
                 <Route exact path='/profile' render={() =>
                     <ProfileContainer
