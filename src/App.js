@@ -32,7 +32,8 @@ const App = (props) => {
 
 
                     />}/>
-                <Route exact path='/profile' render={() =>
+                <Route exact path='/profile/:userId?'
+                       render={() =>
                     <ProfileContainer
                         // store={props.store}
                         // profilePage={props.state.profilePage}
