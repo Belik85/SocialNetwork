@@ -102,15 +102,21 @@ export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFe
 export const toggleFollowingProgress = (isFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId})
 
 
-export const getUsers = (dispatch ) => {
-    this.props.toggleIsFetching(true);
+export const getUsersThunkCreator  = (currentPage, pageSize) => {
+    return (dispatch ) => {
+    dispatch(toggleIsFetching(true));
+    // this.props.toggleIsFetching(true);
 
-    usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-        this.props.toggleIsFetching(false);
-        this.props.setUsers(data.items);
-        this.props.setTotalUsersCount(data.totalCount);
+        usersAPI.getUsers(currentPage,pageSize).then(data => {
+            // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+        dispatch(toggleIsFetching(false));
+        // this.props.toggleIsFetching(false);
+        dispatch(setUsers(data.items));
+        // this.props.setUsers(data.items);
+        dispatch(setTotalUsersCount(data.totalCount));
+        // this.props.setTotalUsersCount(data.totalCount);
     });
 
 }
-
+}
 export default usersReducer;
