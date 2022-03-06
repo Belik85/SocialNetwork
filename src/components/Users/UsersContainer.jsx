@@ -1,11 +1,9 @@
 import React from "react";
 import {connect} from "react-redux";
 import {
-    follow, getUsersThunkCreator,
+    follow, getUsers, getUsersThunkCreator,
     setCurrentPage,
-    setTotalUsersCount,
-    setUsers, toggleFollowingProgress,
-    toggleIsFetching,
+    toggleFollowingProgress,
     unfollow
 } from "../../redux/users-reducer";
 import axios from "axios";
@@ -17,7 +15,9 @@ import {usersAPI} from "../../api/api";
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getUsersThunkCreator();
+
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
+        // this.props.getUsersThunkCreator();
         // this.props.toggleIsFetching(true);
         // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
         //     this.props.toggleIsFetching(false);
@@ -26,22 +26,19 @@ class UsersContainer extends React.Component {
         // });
     }
 
-
-
-
-
-
     onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber);
-        this.props.toggleIsFetching(true);
+
+        this.props.getUsers(pageNumber, this.props.pageSize);
+        // this.props.setCurrentPage(pageNumber);
+        // this.props.toggleIsFetching(true);
         // axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`, {
         //         withCredentials: true,
         //     })
 
-        usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
-            this.props.toggleIsFetching(false);
-            this.props.setUsers(data.items);
-        });
+        // usersAPI.getUsers(pageNumber, this.props.pageSize).then(data => {
+        //     this.props.toggleIsFetching(false);
+        //     this.props.setUsers(data.items);
+        // });
     }
 
     // getUsers = () => {
@@ -157,10 +154,11 @@ let mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
     follow,
     unfollow,
-    setUsers,
+    // setUsers,
     setCurrentPage,
-    setTotalUsersCount,
-    toggleIsFetching,
+    // setTotalUsersCount,
+    // toggleIsFetching,
     toggleFollowingProgress,
-    getUsersThunkCreator
+    // getUsers: getUsersThunkCreator
+    getUsers
 })(UsersContainer);
