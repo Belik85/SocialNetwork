@@ -18,6 +18,13 @@ export const usersAPI = {
             .then(response => {
                 return response.data
             });
+    },
+    follow(userId) {
+
+
+    },
+    unfollow(userId) {
+
     }
 }
 
