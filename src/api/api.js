@@ -21,7 +21,6 @@ export const usersAPI = {
     },
     follow(userId) {
 
-
     },
     unfollow(userId) {
 
