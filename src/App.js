@@ -45,6 +45,7 @@ const App = (props) => {
 
                 <Route exact path='/users' render={() => <UsersContainer/>}/>
 
+                <Route exact path='/login' render={() => <UsersContainer/>}/>
 
             </div>
 
