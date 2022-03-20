@@ -3,6 +3,7 @@ import d from './Dialogs.module.css'
 import DialogItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
 import {sendMessageCreator, updateNewMessageBodyCreator} from "../../redux/dialogs-reducer";
+import {Redirect} from "react-router-dom";
 
 
 const Dialogs = (props) => {
@@ -35,6 +36,13 @@ const Dialogs = (props) => {
         props.updateNewMessageBody(body);
         // props.store.dispatch(updateNewMessageBodyCreator(body));
     }
+
+
+    if (!props.isAuth) return <Redirect to={'/login'}/>;
+
+   // if (props.isAuth === false) return <Redirect to={'/login'}/>;
+
+    // alert(props.isAuth)
 
     // let d = {
     //     id: 1,
