@@ -36,17 +36,18 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
-
-        if (!this.props.isAuth === false) return <Redirect to={'/login'}/>;
-
+        // if (!this.props.isAuth === false) return <Redirect to={'/login'}/>;
         // if (this.props.isAuth === false) return <Redirect to={'/login'}/>;
-
         // if (this.props.isAuth == false) return <Redirect to='/login'/>;
-
         return (
             <Profile {...this.props} profile = {this.props.profile}/>
         )
     }
+}
+
+let AuthRedirectComponent = (props) => {
+    if (!this.props.isAuth === false) return <Redirect to={'/login'}/>;
+    return <ProfileContainer {...props}/>
 }
 
 
@@ -55,7 +56,7 @@ let mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth
 });   // если функция возвращает обьект то мы помещаем его в круглые скобки
 
-let WithUrlDataContainerComponent = withRouter(ProfileContainer)
+let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
 
 export default connect(mapStateToProps, {getUserProfile}) (WithUrlDataContainerComponent);
 // export default connect(mapStateToProps, {setUserProfile}) (WithUrlDataContainerComponent);
