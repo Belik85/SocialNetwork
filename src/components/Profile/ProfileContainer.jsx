@@ -4,6 +4,7 @@ import {connect} from "react-redux";
 import {getUserProfile} from "../../redux/profile-reducer";
 import {Redirect, withRouter} from "react-router-dom";
 import {usersAPI} from "../../api/api";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 
 
@@ -45,16 +46,32 @@ class ProfileContainer extends React.Component {
     }
 }
 
-let AuthRedirectComponent = (props) => {
-    if (!this.props.isAuth === false) return <Redirect to={'/login'}/>;
-    return <ProfileContainer {...props}/>
-}
+// let AuthRedirectComponent = (props) => {
+//     if (!this.props.isAuth === false) return <Redirect to={'/login'}/>;
+//     return <ProfileContainer {...props}/>
+// }
 
+
+
+
+// let mapStateToPropsForRedirect = (state) => ({
+//     isAuth: state.auth.isAuth
+// });
+//
+// AuthRedirectComponent = connect(mapStateToPropsForRedirect) (AuthRedirectComponent);
+
+let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
 
 let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile,
-    isAuth: state.auth.isAuth
-});   // если функция возвращает обьект то мы помещаем его в круглые скобки
+    profile: state.profilePage.profile
+});
+
+
+
+// let mapStateToProps = (state) => ({
+//     profile: state.profilePage.profile,
+//     isAuth: state.auth.isAuth
+// });   // если функция возвращает обьект то мы помещаем его в круглые скобки
 
 let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
 
