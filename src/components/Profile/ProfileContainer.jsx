@@ -5,6 +5,7 @@ import {getUserProfile} from "../../redux/profile-reducer";
 import {Redirect, withRouter} from "react-router-dom";
 import {usersAPI} from "../../api/api";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 
 
@@ -46,6 +47,18 @@ class ProfileContainer extends React.Component {
     }
 }
 
+
+let mapStateToProps = (state) => ({
+    profile: state.profilePage.profile
+});
+
+export default compose(
+    connect(mapStateToProps, {getUserProfile}),
+    withRouter,
+    withAuthRedirect,
+
+) (ProfileContainer);
+
 // let AuthRedirectComponent = (props) => {
 //     if (!this.props.isAuth === false) return <Redirect to={'/login'}/>;
 //     return <ProfileContainer {...props}/>
@@ -60,11 +73,9 @@ class ProfileContainer extends React.Component {
 //
 // AuthRedirectComponent = connect(mapStateToPropsForRedirect) (AuthRedirectComponent);
 
-let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
+// let AuthRedirectComponent = withAuthRedirect(ProfileContainer)
 
-let mapStateToProps = (state) => ({
-    profile: state.profilePage.profile
-});
+
 
 
 
@@ -73,9 +84,9 @@ let mapStateToProps = (state) => ({
 //     isAuth: state.auth.isAuth
 // });   // если функция возвращает обьект то мы помещаем его в круглые скобки
 
-let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
-
-export default connect(mapStateToProps, {getUserProfile}) (WithUrlDataContainerComponent);
+// let WithUrlDataContainerComponent = withRouter(AuthRedirectComponent)
+//
+// export default connect(mapStateToProps, {getUserProfile}) (WithUrlDataContainerComponent);
 // export default connect(mapStateToProps, {setUserProfile}) (WithUrlDataContainerComponent);
 
 // export default connect(mapStateToProps, {setUserProfile}) (ProfileContainer);
