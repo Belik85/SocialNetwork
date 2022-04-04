@@ -3,22 +3,57 @@ import d from './ProfileInfo.module.css'
 import Preloader from "../../common/Preloader/Preloader";
 
 
-const ProfileStatus = (props) => {
+class ProfileStatus extends React.Component {
+
+    state = {
+        editMode: false,
+        title: "Yo"
+    }
 
 
-    return (
-        <div>
+    activateEditMode = () => {
+        // alert("hey")
+        this.state.editMode = true
+    }
+
+
+
+    //
+    // activateEditMode()  {
+    //     this.setState({
+    //         editMode: true,
+    //     })
+    //     // this.state.editMode = true
+    //     // this.forceUpdate();
+    // }
+
+    deactivateEditMode()  {
+        this.setState({
+            editMode: false,
+        })
+        // this.state.editMode = true
+        // this.forceUpdate();
+    }
+
+    render() {
+
+        return (
             <div>
-                <span>{props.status}</span>
+                {!this.state.editMode &&
+                    <div>
+                        {/*<span onDoubleClick={this.activateEditMode.bind(this)}>{this.props.status}</span>*/}
+                        <span onDoubleClick={this.activateEditMode}>{this.props.status}</span>
+                        {/*<span onDoubleClick={() => {alert('hey')}}>{this.props.status}</span>*/}
+                    </div>
+                }
+                {this.state.editMode &&
+                    <div>
+                        <input autoFocus={true} onBlur={this.deactivateEditMode.bind(this)} value={this.props.status}/>
+                    </div>
+                }
             </div>
-            <div>
-                <input value={props.status}/>
-            </div>
-            <div>
-                <span>{props.status}</span>
-            </div>
-        </div>
-    )
+        )
+    }
 }
 
 export default ProfileStatus;
