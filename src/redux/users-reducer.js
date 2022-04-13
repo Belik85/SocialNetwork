@@ -136,6 +136,8 @@ export const unfollow = (userId) => {
     }
 }
 
+
+
 export const follow = (userId) => {
     return (dispatch) => {
         dispatch(toggleFollowingProgress(true, userId));

@@ -33,6 +33,7 @@ export const usersAPI = {
     //     // return axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId);
     // },
     getProfile(userId) {
+        console.warn("Obsolete method. Please profileApi object.")
         return profileAPI.getProfile(userId)
 
     },
@@ -41,8 +42,13 @@ export const usersAPI = {
 export const profileAPI = {
     getProfile(userId) {
         return instance.get(`profile/` + userId);
-
+        },
+    getStatus(userId) {
+        return instance.get(`status/` + userId);
     },
+    updateStatus(status) {
+        return instance.put(`status/`, {status:status});
+    }
 }
 
 
