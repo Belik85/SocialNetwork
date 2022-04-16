@@ -122,6 +122,8 @@ export const getStatus = (userId) => (dispatch) => {
     });
 }
 
+
+
 export const updateStatus = (status) => (dispatch) => {
     profileAPI.updateStatus(status).then(response => {
         if (response.data.resultCode === 0) {
@@ -135,3 +137,5 @@ export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_
 export const setStatus = (status) => ({type: SET_STATUS, status})
 
 export default profileReducer;
+
+
