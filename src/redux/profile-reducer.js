@@ -19,6 +19,8 @@ let initialState = {
 
 
 
+
+
 const profileReducer = (state = initialState, action) => {
 
     // if (action.type === "ADD-POST") {
